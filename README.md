@@ -20,7 +20,7 @@ Coffe-Shop es una plataforma en línea dedicada a la venta de café de alta cali
 Regularidad:
 |Req|Detalle|
 |:-|:-|
-|CRUD simple|1. CRUD Tipo producto<br>2. CRUD Pedido<br>3. CRUD Cliente|
+|CRUD simple|1. CRUD Categoria de Producto<br>2. CRUD Pedido<br>3. CRUD Cliente|
 |CRUD dependiente|1. CRUD Producto {depende de} CRUD Tipo de Café<br>2. CRUD Pedido {depende de} CRUD Cliente|
 |Listado<br>+<br>detalle|1. Listado de productos filtrado por tipo de café, muestra nombre y precio => detalle CRUD Producto<br> 2. Listado de pedidos filtrado por rango de fecha, muestra número de pedido, fecha, estado y nombre del cliente => detalle muestra datos completos del pedido y del cliente|
 |CUU/Epic|1. Realizar un pedido de productos<br>2. Ver detalles de un pedido|
