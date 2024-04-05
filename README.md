@@ -1,17 +1,15 @@
-# Propuesta TP DSW
-
+Coffe-Shop
 ## Grupo
 ### Integrantes
-* legajo - Apellido(s), Nombre(s)
+* 47896 - Bonanno, Juan Cruz
 
 ### Repositorios
 * [frontend app](http://hyperlinkToGihubOrGitlab)
 * [backend app](http://hyperlinkToGihubOrGitlab)
-*Nota*: si utiliza un monorepo indicar un solo link con fullstack app.
 
 ## Tema
 ### Descripción
-*2 a 6 líneas describiendo el negocio (menos es más)*
+Coffe-Shop es una plataforma en línea dedicada a la venta de café de alta calidad y productos relacionados. Ofrecemos granos de café de origen único, accesorios para café y productos gourmet. Nuestro objetivo es proporcionar a los amantes del café una experiencia de compra única y satisfactoria, brindando buenos productos y de calidad superior.
 
 ### Modelo
 ![imagen del modelo]()
