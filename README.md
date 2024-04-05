@@ -14,8 +14,7 @@ Coffee-Shop
 Coffee-Shop es una plataforma en línea dedicada a la venta de café de alta calidad y productos relacionados. Ofrecemos granos de café de origen único, accesorios para café y productos gourmet. Nuestro objetivo es proporcionar a los amantes del café una experiencia de compra única y satisfactoria, brindando buenos productos y de calidad superior.
 
 ### Modelo
-![dsw drawio]
-(https://github.com/JuanBona/Trabajo-practico-DSW-UTN/assets/155491172/4a0d20e8-7446-4974-9e79-c1601937c18d)<br>
+![dsw drawio](https://github.com/JuanBona/Trabajo-practico-DSW-UTN/assets/155491172/4a0d20e8-7446-4974-9e79-c1601937c18d)<br>
 https://drive.google.com/file/d/1xFB9vr6ibZYoP9-cF2pP9fkRneIBFlvT/view?usp=sharing
 
 ## Alcance Funcional 
