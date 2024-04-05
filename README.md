@@ -15,7 +15,7 @@ Coffee-Shop es una plataforma en línea dedicada a la venta de café de alta cal
 
 ### Modelo
 ![dsw drawio]
-(https://github.com/JuanBona/Trabajo-practico-DSW-UTN/assets/155491172/4a0d20e8-7446-4974-9e79-c1601937c18d)
+(https://github.com/JuanBona/Trabajo-practico-DSW-UTN/assets/155491172/4a0d20e8-7446-4974-9e79-c1601937c18d)<br>
 https://drive.google.com/file/d/1xFB9vr6ibZYoP9-cF2pP9fkRneIBFlvT/view?usp=sharing
 
 ## Alcance Funcional 
