@@ -1,4 +1,4 @@
-Coffe-Shop
+Coffee-Shop
 ## Grupo
 ### Integrantes
 * 47896 - Bonanno, Juan Cruz
