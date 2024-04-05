@@ -17,8 +17,6 @@ Coffe-Shop es una plataforma en línea dedicada a la venta de café de alta cali
 
 ### Alcance Mínimo
 
-*Nota*: el siguiente es un ejemplo para un grupo de 3 integrantes para un sistema de hotel. El 
-
 Regularidad:
 |Req|Detalle|
 |:-|:-|
