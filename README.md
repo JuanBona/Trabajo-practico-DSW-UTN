@@ -3,6 +3,7 @@ Coffee-Shop
 ### Integrantes
 * 47896 - Bonanno, Juan Cruz
 * 52977 - Bentancour, Felipe
+* 47817 - Fernandez, Felipe M 
 
 ### Repositorios
 * [frontend app](http://hyperlinkToGihubOrGitlab)
