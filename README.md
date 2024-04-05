@@ -2,6 +2,7 @@ Coffe-Shop
 ## Grupo
 ### Integrantes
 * 47896 - Bonanno, Juan Cruz
+* 52977 - Bentancour, Felipe
 
 ### Repositorios
 * [frontend app](http://hyperlinkToGihubOrGitlab)
