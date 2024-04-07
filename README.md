@@ -3,7 +3,8 @@
 ### Integrantes
 * 47896 - Bonanno, Juan Cruz
 * 52977 - Bentancour, Felipe
-* 47817 - Fernandez, Felipe M 
+* 47817 - Fernandez, Felipe M
+* 47953 - Rodriguez, Guido
 
 ### Repositorios
 * [frontend app](http://hyperlinkToGihubOrGitlab)
