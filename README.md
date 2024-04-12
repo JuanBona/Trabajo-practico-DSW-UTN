@@ -33,5 +33,5 @@ Regularidad:
 Adicionales para la aprobacion:
 |Req|Detalle|
 |:-|:-|
-|CRUD|1. CRUD Tipo de Producto<br>2. CRUD Pedido<br>3. CRUD Cliente <br>4. CRUD Producto <br> 5.CRUD Promoción<br>6. CRUD Valoración del Cliente<br>7. CRUD Tipo Pedido<br>8. CRUD Tipo Cliente|
+|CRUD|1. CRUD Tipo de Producto<br>2. CRUD Pedido<br>3. CRUD Cliente <br>4. CRUD Producto <br>5. CRUD Promoción<br>6. CRUD Valoración del Cliente<br>7. CRUD Tipo Pedido<br>8. CRUD Tipo Cliente|
 |CUU/Epic|1. Administrar valoraciones de productos y café<br>2. Registrar la compra de un cliente como consumidor final o empresa <br>3. Realizar el control de envios del estilo retiro o envio
