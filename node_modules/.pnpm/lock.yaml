@@ -12,7 +12,7 @@ dependencies:
     specifier: ^20.12.11
     version: 20.12.11
   express:
-    specifier: ^4.19.2
+    specifier: 4.19.2
     version: 4.19.2
 
 devDependencies:
