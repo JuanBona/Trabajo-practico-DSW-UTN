@@ -13,40 +13,52 @@ export class cliente {
         public postalCode: string,
         public dni: string,
         public password: string
-    ) {}
-    public static generateId() {
+    ) { this.id = id,
+        this.nombre = nombre,
+        this.apellido = apellido,
+        this.birthdate = birthdate,
+        this.email = email,
+        this.phone = phone,
+        this.address = address,
+        this.city = city,
+        this.country = country,
+        this.postalCode = postalCode,
+        this.dni = dni,
+        this.password = password
+     }  
+    public generateId() {
         return crypto.randomBytes(16).toString('hex')
     }
-    public static validateEmail(email: string) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    public validateEmail() {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)
     }
-    public static validatePhone(phone: string) {
-        return /^\d{9}$/.test(phone)
+    public validatePhone() {
+        return /^\d{9}$/.test(this.phone)
     }
-    public static validatePostalCode(postalCode: string) {
-        return /^\d{5}$/.test(postalCode)
+    public validatePostalCode() {
+        return /^\d{5}$/.test(this.postalCode)
     }
-    public static validateDni(dni: string) {
-        return /^\d{8}[A-Z]$/.test(dni)
+    public validateDni() {
+        return /^\d{8}[A-Z]$/.test(this.dni)
     }
-    public static validatePassword(password: string) {
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password)
+    public validatePassword() {
+        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(this.password)
     }
-    public static validateCountry(country: string) {
-        return /^[a-zA-Z]+$/.test(country)
+    public validateCountry() {
+        return /^[a-zA-Z]+$/.test(this.country)
     }
-    public static validateCity(city: string) {
-        return /^[a-zA-Z]+$/.test(city)
+    public validateCity() {
+        return /^[a-zA-Z]+$/.test(this.city)
     }
-    public static validateAddress(address: string) {
-        return /^[a-zA-Z0-9]+$/.test(address)
+    public validateAddress() {
+        return /^[a-zA-Z0-9]+$/.test(this.address)
     }
-    public static validateName(name: string) {
-        return /^[a-zA-Z]+$/.test(name)
+    public validateName() {
+        return /^[a-zA-Z]+$/.test(this.nombre)
     }
-    public static validarEdad(birthdate: Date) {
+    public validarEdad() {
         let hoy = new Date()
-        let cumpleanos = new Date(birthdate)
+        let cumpleanos = new Date(this.birthdate)
         let edad = hoy.getFullYear() - cumpleanos.getFullYear()
         let m = hoy.getMonth() - cumpleanos.getMonth()
         if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
