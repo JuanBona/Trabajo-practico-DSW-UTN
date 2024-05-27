@@ -1,5 +1,3 @@
-import crypto from 'node:crypto'
-import { get } from 'node:http'
 
 export class producto {
     constructor(

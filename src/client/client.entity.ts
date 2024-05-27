@@ -1,9 +1,9 @@
 import crypto from 'node:crypto'
-export class cliente {
+export class client {
     constructor(
-        public id: number,
-        public nombre: string,
-        public apellido: string,
+        public id = crypto.randomUUID(),
+        public name: string,
+        public lastname: string,
         public birthdate: Date,
         public email: string,
         public phone: string,
@@ -14,8 +14,8 @@ export class cliente {
         public dni: string,
         public password: string
     ) { this.id = id,
-        this.nombre = nombre,
-        this.apellido = apellido,
+        this.name = name,
+        this.lastname = lastname,
         this.birthdate = birthdate,
         this.email = email,
         this.phone = phone,
