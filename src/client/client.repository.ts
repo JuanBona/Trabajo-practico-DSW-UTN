@@ -20,15 +20,15 @@ export class clientRepository implements repository<client>{
     public findAll(): client[] | undefined {
         return clients;
     }
-    public findOne(item: { id: number }): client | undefined {
-        return clients.find(client => client.id === item.id);
-    }
+    public findOne(item: { id: string }): client | undefined {
+        return clients.find((client) => client.id === item.id)
+      }
     public add(item: client): client | undefined {
         clients.push(item);
         return item;
     }
     public update(item: client): client | undefined {
-        const index = clients.findIndex(client => client.id === item.id);
+        const index = clients.findIndex((client) => client.id === item.id);
         if (index !== -1) {
             clients[index] = item;
             return item;
@@ -36,7 +36,7 @@ export class clientRepository implements repository<client>{
         return undefined;
     }
     public delete(item: { id: string }): client | undefined {
-        const index = clients.findIndex(client => client.id === Number(item.id));
+        const index = clients.findIndex((client) => client.id === item.id);
         if (index !== -1) {
             const deleted = clients[index];
             clients.splice(index, 1);
