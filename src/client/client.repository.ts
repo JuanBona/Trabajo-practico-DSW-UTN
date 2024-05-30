@@ -2,7 +2,7 @@ import { repository } from "../shared/repository.js";
 import { client } from "./client.entity.js";
 const clients = [
     new client(
-        1,
+        '1-1-1-1-1',
         'John',
         'Doe',
         new Date('1990-01-01'),
