@@ -12,7 +12,8 @@ export class client {
         public country: string,
         public postalCode: string,
         public dni: string,
-        public password: string
+        public password: string,
+        public _id?: ObjectId
     ) { this.id = id,
         this.name = name,
         this.lastname = lastname,
