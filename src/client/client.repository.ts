@@ -2,7 +2,6 @@ import { repository } from "../shared/repository.js";
 import { client } from "./client.entity.js";
 const clients = [
     new client(
-        '1-1-1-1-1',
         'John',
         'Doe',
         new Date('1990-01-01'),
@@ -13,35 +12,35 @@ const clients = [
         'USA',
         '123456',
         '123456789',
-        '123456'
+        'a02b91bc-3769-4221-beb1-d7a3aeba7dad'
     ),
 ]     
 export class clientRepository implements repository<client>{
-    public findAll(): client[] | undefined {
-        return clients;
+    public async findAll(): Promise< client[] | undefined> {
+        return await clients;
     }
-    public findOne(item: { id: string }): client | undefined {
-        return clients.find((client) => client.id === item.id)
+    public async findOne(item: { id: string }): Promise<client | undefined> {
+        return await clients.find((client) => client.id === item.id)
       }
-    public add(item: client): client | undefined {
+    public async add(item: client): Promise<client | undefined> {
         clients.push(item);
-        return item;
+        return await item;
     }
-    public update(item: client): client | undefined {
+    public async update(item: client): Promise<client | undefined> {
         const index = clients.findIndex((client) => client.id === item.id);
         if (index !== -1) {
             clients[index] = item;
-            return item;
+            return await item;
         }
         return undefined;
     }
-    public delete(item: { id: string }): client | undefined {
+    public async delete(item: { id: string }): Promise<client | undefined> {
         const index = clients.findIndex((client) => client.id === item.id);
         if (index !== -1) {
             const deleted = clients[index];
             clients.splice(index, 1);
-            return deleted;
+            return await deleted;
         }
-        return undefined;
+        return await undefined;
     }
 }
