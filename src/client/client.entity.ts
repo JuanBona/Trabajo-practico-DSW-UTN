@@ -16,3 +16,4 @@ export class client {
         public _id?: ObjectId
     ) {}  
 }
+// Path: src/client/client.repository.ts

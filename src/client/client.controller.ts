@@ -67,3 +67,4 @@ async function remove (req: Request, res: Response){
   return res.status(200).json({message: 'Client deleted', data: client})
 }
 export {findAll, findOne, add, update, remove, sanitizeClientesInput}
+// Path: src/client/client.repository.ts
