@@ -1,0 +1,41 @@
+### Obtener todos los pedidos
+GET http://localhost:3000/api/orders
+
+### Obtener un pedido 
+GET http://localhost:3000/api/orders/22662122-6257-43c4-a36d-b62e0b08f9e4
+
+### crear un nuevo pedido
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+    "fecha": 2008-03-27,
+    "estado":"pendiente",
+    "cantidadProducto":  7,
+    "precioUnitario": 100000
+}
+
+### modificar un pedido (PUT- recurso completo e idempotente)
+PUT http://localhost:3000/api/orders/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+    "fecha": 2018-05-22,
+    "estado":"pendiente",
+    "cantidadProducto":  2,
+    "precioUnitario": 7000
+}
+
+### modificar un pedido (PATCH - recurso parcial)
+PATCH http://localhost:3000/api/orders/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+    "fecha": 2008-03-27,
+    "precioUnitario": 40 000
+}
+
+### borrar un pedido
+
+DELETE http://localhost:3000/api/orders/22662122-6257-43c4-a36d-b62e0b08f9e4
+
