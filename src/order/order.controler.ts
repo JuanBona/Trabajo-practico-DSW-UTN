@@ -11,7 +11,7 @@ function sanitizeOrderInput(req: Request, res: Response, next: NextFunction){
         cantidadProducto: req.body.cantidadProducto,
         precioUnitario: req.body.precioUnitario, 
     }
-    //more checks here...
+   
 
     Object.keys(req.body.sanitizedInput).forEach((key) => {
         if (req.body.sanitizedInput[key] === undefined) {
@@ -21,50 +21,44 @@ function sanitizeOrderInput(req: Request, res: Response, next: NextFunction){
     next()
 }
 
-function findAll(req: Request, res: Response) {
-    res.json({data: repository.findAll() })
+async function findAll(req: Request, res: Response) {
+    res.json(await repository.findAll());
 }
 
-function findOne(req: Request, res: Response){
+async function findOne(req: Request, res: Response){
     const id = req.params.id
-    const character = repository.findOne({id})
-    if(!character){
-       return res.status(404).send({ message: 'Order not found}'})
+    const order = await repository.findOne({id})
+    if(!order){
+       return res.status(404).send({message: 'Order not found}'})
     }
-    res.json({data: character})
+    res.json({data: order})
 }
 
-function add(req: Request, res: Response){
+async function add(req: Request, res: Response){
      const input = req.body.sanitizedInput
-
      const orderInput = new Order(
         input.fecha, 
         input.estado, 
         input.cantidadProducto, 
         input.precioUnitario)
 
-     const order = repository.add(orderInput)
+     const order = await repository.add(orderInput)
      return res.status(201).send({ message: 'Order created successfully', data: order})
 
 }
 
-function update(req: Request, res: Response) {
+async function update(req: Request, res: Response) {
     req.body.sanitizedInput.id = req.params.id
-    const order = repository.update(req.body.sanitizedInput)
-    
+    const order = await repository.update(req.body.sanitizedInput) 
     if(!order) {
         return res.status(404).send({ message: 'order not found'})
     } 
-
     return res.status(200).send({message: 'Order updated successfully', data: order})
-
 }
 
-function remove(req: Request, res: Response) {
+async function remove(req: Request, res: Response) {
     const id = req.params.id
-    const order = repository.delete({id})
-    
-
+    const order = await repository.delete({id})
     if(!order) {
         res.status(404).send({ message: 'order not found'})
     } else {
