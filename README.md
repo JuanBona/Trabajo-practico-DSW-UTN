@@ -2,7 +2,7 @@
 ## Grupo
 ### Integrantes
 * 47896 - Bonanno, Juan Cruz
-* 52977 - Bentancour, Felipe
+*  - Coccoz, Manuel
 * 47817 - Fernandez, Felipe M
 * 47953 - Rodriguez, Guido
 
