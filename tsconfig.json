@@ -14,6 +14,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "include": ["src/**/*", "c:/Users/Bonan/Trabajo-practico-DSW-UTN/src/cliente/client.ts", "c:/Users/felipefernandez/Trabajo-practico-DSW-UTN/src/orders/order.ts"],
+  "include": ["src/**/*", "c:/Users/Bonan/Trabajo-practico-DSW-UTN/src/cliente/client.ts", "c:/Users/felipefernandez/Trabajo-practico-DSW-UTN/src/orders/order.ts", "src/app.ts"],
   "exclude": ["node_modules"]
 }

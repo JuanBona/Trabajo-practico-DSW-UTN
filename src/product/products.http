@@ -1,0 +1,45 @@
+### obtener todos los products
+GET http://localhost:3000/api/products
+
+### obtener un product
+GET http://localhost:3000/api/products/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+
+### crear un nuevo product
+
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "nombre": "cafe nuevo",
+    "descripcion": "cafe dorado",
+    "precio": "500",
+    "stock": "1",
+    "marca": "Leyenda",
+    "categoria": "Unico"
+    }
+
+### modificar un product
+PUT http://localhost:3000/api/products/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+    "nombre": "cafe put",
+    "descripcion": "cafe plateado",
+    "precio": "999",
+    "stock": "33",
+    "marca": "Epico",
+    "categoria": "Unico"
+}
+
+### modificar un product (parcialmente)
+PATCH http://localhost:3000/api/products/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+    "nombre": "cafe put",
+    "descripcion": "cafe INCREIBLE"
+}
+
+### delete a product
+
+DELETE http://localhost:3000/api/products/a02b91bc-3769-4221-beb1-d7a3aeba7dad
