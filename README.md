@@ -2,7 +2,7 @@
 ## Grupo
 ### Integrantes
 * 47896 - Bonanno, Juan Cruz
-* 52977 - Bentancour, Felipe
+* 49693 - Coccoz, Manuel
 * 47817 - Fernandez, Felipe M
 * 47953 - Rodriguez, Guido
 
@@ -15,8 +15,10 @@
 Don Julio Tostadero de cafe es una plataforma en línea dedicada a la venta de café de alta calidad y productos relacionados. Ofrecemos granos de café de origen único, accesorios para café y productos gourmet. Nuestro objetivo es proporcionar a los amantes del café una experiencia de compra única y satisfactoria, brindando buenos productos y de calidad superior.
 
 ### Modelo
-![dsw drawio](https://github.com/JuanBona/Trabajo-practico-DSW-UTN/assets/155491172/4a0d20e8-7446-4974-9e79-c1601937c18d)<br>
-https://drive.google.com/file/d/1xFB9vr6ibZYoP9-cF2pP9fkRneIBFlvT/view?usp=sharing
+[COFFEESHOP.drawio.pdf](https://github.com/user-attachments/files/16036443/Copia.de.Java.TP.drawio.pdf) <br><br>
+https://drive.google.com/file/d/1oMacCh4JopPpksrR-n-q04tDVllo_dPT/view?usp=drive_link
+
+
 
 ## Alcance Funcional 
 
