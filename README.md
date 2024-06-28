@@ -24,16 +24,18 @@ https://drive.google.com/file/d/1oMacCh4JopPpksrR-n-q04tDVllo_dPT/view?usp=drive
 
 ### Alcance Mínimo
 
-Regularidad:
-|Req|Detalle|
-|:-|:-|
-|CRUD simple|1. CRUD Tipo de Producto<br>2. CRUD Pedido<br>3. CRUD Cliente <br>3. CRUD Producto|
-|CRUD dependiente|1. CRUD Tipo de Producto {depende de} CRUD Producto<br>2. CRUD Pedido {depende de} CRUD Cliente|
-|Listado<br>+<br>detalle|1. Listado de productos filtrado por tipo de productos, muestra nombre y precio => detalle CRUD Producto<br> 2. Listado de pedidos filtrado por rango de fecha, muestra número de pedido, fecha, estado y nombre del cliente => detalle muestra datos completos del pedido y del cliente|
-|CUU/Epic|1. Realizar un pedido de productos<br>2. Ver detalles de un pedido|
+## Regularidad
 
-Adicionales para la aprobacion:
-|Req|Detalle|
-|:-|:-|
-|CRUD|1. CRUD Tipo de Producto<br>2. CRUD Pedido<br>3. CRUD Cliente <br>4. CRUD Producto <br>5. CRUD Promoción<br>6. CRUD Valoración del Cliente<br>7. CRUD Tipo Pedido<br>8. CRUD Tipo Cliente|
-|CUU/Epic|1. Administrar valoraciones de productos y café<br>2. Registrar la compra de un cliente como consumidor final o empresa <br>3. Realizar el control de envios del estilo retiro o envio
+| Req | Detalle |
+| --- | --- |
+| CRUD simple | 1. CRUD Categoría<br>2. CRUD Pedido<br>3. CRUD Persona<br>4. CRUD Producto |
+| CRUD dependiente | 1. CRUD Administrador {depende de} CRUD Persona<br>2. CRUD Cliente {depende de} CRUD Persona |
+| Listado + detalle | 1. Listado de productos filtrado por tipo de productos, muestra nombre y precio => detalle CRUD Producto<br>2. Listado de pedidos filtrado por rango de fecha, muestra número de pedido, fecha, estado y nombre del cliente => detalle muestra datos completos del pedido y del cliente |
+| CUU/Epic | 1. Realizar un pedido de productos<br>2. Ver detalles de un pedido |
+
+## Adicionales para la aprobación
+
+| Req | Detalle |
+| --- | --- |
+| CRUD | 1. CRUD Categoría<br>2. CRUD Línea de Venta<br>3. CRUD Cliente<br>4. CRUD Producto<br>5. CRUD Venta<br>6. CRUD Valoración del Cliente<br>7. CRUD Marca<br>8. CRUD Tipo Persona |
+| CUU/Epic | 1. Administrar valoraciones de productos y café<br>2. Registrar la compra de un cliente como consumidor final o empresa<br>3. Realizar el control de envíos del estilo retiro o envío |
