@@ -1,0 +1,36 @@
+### obtener todos las categories
+GET http://localhost:3000/api/categories
+
+### obtener una category
+GET http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+
+### crear una nueva category
+POST http://localhost:3000/api/categories
+Content-Type: application/json
+
+{
+    "nombre": "Accesorios para cafe",
+    "descripcion": "Los mejores accesorios para tu cafe!"
+    }
+
+### modificar una category
+PUT http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+    "nombre": "Categoria modificada",
+    "descripcion": "Esta categoria fue modificada..."
+}
+
+### modificar una category(parcialmente)
+PATCH http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+    "nombre": "Cafe e infusiones",
+    "descripcion": "Una gran variedad"
+}
+
+### delete una category
+
+DELETE http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
