@@ -44,8 +44,7 @@ async function add(req: Request, res: Response){
 }
 
 async function update(req: Request, res: Response){
-    req.body.sanitizedInput.idCategory = req.params.id
-    const category = await repository.update(req.body.sanitizedInput)
+    const category = await repository.update(req.params.id, req.body.sanitizedInput)
 
     if(!category){
         return res.status(404).send({ message: 'Category not found' })

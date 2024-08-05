@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/categories
 
 ### obtener una category
-GET http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+GET http://localhost:3000/api/categories/669ee14b9de875456ec4e49c
 
 ### crear una nueva category
 POST http://localhost:3000/api/categories
@@ -14,7 +14,7 @@ Content-Type: application/json
     }
 
 ### modificar una category
-PUT http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+PUT http://localhost:3000/api/categories/669ee14b9de875456ec4e49c
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### modificar una category(parcialmente)
-PATCH http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+PATCH http://localhost:3000/api/categories/669ee14b9de875456ec4e49c
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 
 ### delete una category
 
-DELETE http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+DELETE http://localhost:3000/api/categories/669ef23e60a0b035bf470c56
