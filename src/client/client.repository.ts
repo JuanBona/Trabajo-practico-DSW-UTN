@@ -1,47 +1,27 @@
 import { repository } from "../shared/repository.js";
 import { client } from "./client.entity.js";
-const clients = [
-    new client(
-        'John',
-        'Doe',
-        new Date('1990-01-01'),
-        'jhon@doe.com',
-        '123456789',
-        'Fake St. 123',
-        'Springfield',
-        'USA',
-        '123456',
-        '123456789',
-        'a02b91bc-3769-4221-beb1-d7a3aeba7dad'
-    ),
-]     
+import {db} from '../shared/db/conn.js'
+import { ObjectId } from "mongodb";
+const clients = db.collection<client>('client');
 export class clientRepository implements repository<client>{
-    public async findAll(): Promise< client[] | undefined> {
-        return await clients;
+    public async findAll(): Promise<client[] | undefined> {
+        return await clients.find().toArray();
     }
     public async findOne(item: { id: string }): Promise<client | undefined> {
-        return await clients.find((client) => client.id === item.id)
+        const _id = new ObjectId(item.id);
+        return (await clients.findOne({_id})) || undefined;
       }
     public async add(item: client): Promise<client | undefined> {
-        clients.push(item);
-        return await item;
+        item._id = (await clients.insertOne(item)).insertedId;
+        return item;
     }
-    public async update(item: client): Promise<client | undefined> {
-        const index = clients.findIndex((client) => client.id === item.id);
-        if (index !== -1) {
-            clients[index] = item;
-            return await item;
-        }
-        return undefined;
+    public async update(id:string,item: client): Promise<client | undefined> {
+        const _id = new ObjectId(id);
+        return (await clients.findOneAndUpdate({_id}, {$set: item}, {returnDocument: 'after'})) || undefined;
     }
     public async delete(item: { id: string }): Promise<client | undefined> {
-        const index = clients.findIndex((client) => client.id === item.id);
-        if (index !== -1) {
-            const deleted = clients[index];
-            clients.splice(index, 1);
-            return await deleted;
-        }
-        return await undefined;
+        const _id = new ObjectId(item.id);
+        return (await clients.findOneAndDelete({_id})) || undefined;
     }
 }
 // Path: src/client/client.controller.ts

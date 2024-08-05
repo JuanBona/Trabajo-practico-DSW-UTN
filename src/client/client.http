@@ -2,14 +2,13 @@
 GET http://localhost:3000/api/clients
 
 ### un cliente en particular
-GET http://localhost:3000/api/clients/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+GET http://localhost:3000/api/clients/665ce676ea03f832f6bea45a
 
 ### crear un nuevo cliente
 POST http://localhost:3000/api/clients
 Content-Type: application/json
 
 {
-"sanitizedInput": {
         "name": "Juan",
         "lastname": "Bonanno",
         "birthdate": "1993-01-01",
@@ -20,11 +19,11 @@ Content-Type: application/json
         "country": "ARG",
         "postalCode": "1234",
         "dni": "12345678"
-    }
 }
 
+
 ### modificar un cliente (PUT - recurso completo e idempotente)
-PUT http://localhost:3000/api/clients/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+PUT http://localhost:3000/api/clients/66b0e8c8e17bb011977c78c0
 Content-Type: application/json
 
 {
@@ -41,7 +40,7 @@ Content-Type: application/json
 }
 
 ### modificar un cliente (PATCH - recurso parcial)
-PATCH http://localhost:3000/api/clientes/1-1-1-1-1
+PATCH http://localhost:3000/api/clients/1-1-1-1-1
 Content-Type: application/json
 
 {
@@ -50,4 +49,4 @@ Content-Type: application/json
 }
 
 ### borrar un cliente
-DELETE http://localhost:3000/api/clientes/6518e2129dc24856d32951d7
+DELETE http://localhost:3000/api/clients/66b0e870e17bb011977c78bf

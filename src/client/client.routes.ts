@@ -5,6 +5,5 @@ clientRouter.get('/', findAll);
 clientRouter.get('/:id',sanitizeClientesInput, findOne);
 clientRouter.post('/',sanitizeClientesInput, add);
 clientRouter.put('/:id',sanitizeClientesInput, update);
-clientRouter.delete('/:id',sanitizeClientesInput,remove);
-// Path: src/client/client.entity.ts
+clientRouter.delete('/:id', sanitizeClientesInput, remove)// Path: src/client/client.entity.ts
 // compare 

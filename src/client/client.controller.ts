@@ -51,8 +51,7 @@ async function add(req: Request, res: Response){
   return res.status(201).send({message:'Client createad',data: Client})
 }
 async function update (req: Request, res: Response){
-req.body.sanitizedInput.id = req.params.id;
-const client = await repository.update(req.body.sanitizedInput)
+const client = await repository.update(req.params.id,req.body.sanitizedInput)
 if(!client){
   return res.status(404).json({message: 'Client not found'})
 }
