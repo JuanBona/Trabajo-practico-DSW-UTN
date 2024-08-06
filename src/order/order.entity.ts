@@ -1,4 +1,5 @@
 import crypto from 'node:crypto'
+import { ObjectId } from 'mongodb'
 
 export class Order{
     constructor(
@@ -6,5 +7,7 @@ export class Order{
        public estado: string,
        public cantidadProducto: number,
        public precioUnitario: number,
-       public id = crypto.randomUUID()) {}
+       public _id?: ObjectId             
+    ) {}
+
 }

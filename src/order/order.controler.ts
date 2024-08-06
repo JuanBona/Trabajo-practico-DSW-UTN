@@ -49,7 +49,7 @@ async function add(req: Request, res: Response){
 
 async function update(req: Request, res: Response) {
     req.body.sanitizedInput.id = req.params.id
-    const order = await repository.update(req.body.sanitizedInput) 
+    const order = await repository.update(req.params.id, req.body.sanitizedInput) 
     if(!order) {
         return res.status(404).send({ message: 'order not found'})
     } 
