@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import crypto from 'node:crypto'
 
 export class Product{
@@ -8,6 +9,6 @@ export class Product{
         public stock: number,
         public marca: string,
         public categoria: string,
-        public idProducto= crypto.randomUUID()
+        public _id ?: ObjectId
     ) {}
 }

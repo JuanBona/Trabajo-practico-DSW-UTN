@@ -52,8 +52,7 @@ async function add(req: Request, res: Response){
 }
 
 async function update(req: Request, res: Response){
-    req.body.sanitizedInput.idProducto = req.params.id
-    const product = await repository.update(req.body.sanitizedInput)
+    const product = await repository.update(req.params.id, req.body.sanitizedInput)
 
     if(!product){
         return res.status(404).send({ message: 'Product not found' })
