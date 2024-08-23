@@ -31,7 +31,7 @@ https://drive.google.com/file/d/1oMacCh4JopPpksrR-n-q04tDVllo_dPT/view?usp=drive
 | CRUD simple | 1. CRUD Categoría<br>2. CRUD Marca<br>3. CRUD Persona<br>4. CRUD Producto |
 | CRUD dependiente | 1. CRUD Administrador {depende de} CRUD Persona<br>2. CRUD Cliente {depende de} CRUD Persona |
 | Listado + detalle | 1. Listado de productos filtrado por tipo de productos, muestra nombre y precio => detalle CRUD Producto<br>2. Listado de pedidos filtrado por rango de fecha, muestra número de pedido, fecha, estado y nombre del cliente => detalle muestra datos completos del pedido y del cliente |
-| CUU/Epic | 1. Realizar un pedido de productos<br>2. Ver detalles de un pedido |
+| CUU/Epic | 1. Realizar un pedido de productos<br>2. Cancelar un pedido |
 
 ## Adicionales para la aprobación
 
