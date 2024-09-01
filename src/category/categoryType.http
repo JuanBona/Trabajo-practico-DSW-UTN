@@ -1,0 +1,41 @@
+### GET ALL
+GET http://localhost:3000/api/categories/types
+
+### POST
+# @name createCategoryType
+POST http://localhost:3000/api/categories/types
+Content-Type: application/json
+
+{
+    "nombre": "Capsula",
+    "descripcion": "Una capsula de cafe"
+}
+
+### ID
+@id = {{createCategoryType.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/api/categories/types/{{id}}
+
+### PUT
+POST http://localhost:3000/api/categories/types/{{id}}
+Content-Type: application/json
+
+{
+    "nombre": "Capsula", 
+    "descripcion": "capsula de cafe"
+}
+
+### POST CATEGORY TO DELETE
+# @name createCategoryClassToDelete
+POST http://localhost:3000/api/categories/types
+Content-Type: application/json
+
+{
+    "nombre":"prueba",
+    "descripcion":"descripcion de prueba",
+}
+
+### DELETE
+@idToDelete = {{createCategoryClassToDelete.response.body.data.id}}
+DELETE http://localhost:3000/api/categories/types{{{{idToDelete}}}}
