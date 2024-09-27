@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express"
-import { ProductRepository } from "./product.repository.js"
 import { Product } from "./product.entity.js"
+import { orm } from "../shared/db/orm.js"
 
-const repository = new ProductRepository()
+const em = orm.em
 
 function sanitizeProductInput(req: Request, res: Response, next: NextFunction){
     req.body.sanitizedInput = {
@@ -23,53 +23,55 @@ function sanitizeProductInput(req: Request, res: Response, next: NextFunction){
 }
 
 async function findAll(req:Request, res:Response){
-    res.json(await repository.findAll() )
+    try{
+        const products = await em.find(Product, {}, {populate: ['productBrand']})
+        res.status(200).json({message: 'found all products', data:products})
+    } catch (error:any){
+        res.status(500).json({message: error.message})
+    }
 }
 
 async function findOne(req:Request, res:Response){
-    const id = req.params.id
-    const product = await repository.findOne({id})
-
-    if(!product){
-        return res.status(404).send({message: 'Product not found'})
-    }
-    res.json({data: product})
+    try {
+        const id = req.params.id
+        const product = await em.findOneOrFail(Product, { id },{ populate: ['productBrand'] }
+        )
+        res.status(200).json({ message: 'found product', data: product })
+      } catch (error: any) {
+        res.status(500).json({ message: error.message })
+      }
 }
 
 async function add(req: Request, res: Response){
-    const input = req.body.sanitizedInput
-    const productInput = new Product(
-        input.nombre,
-        input.descripcion,
-        input.precio,
-        input.stock,
-        input.marca,
-        input.categoria
-    )
-
-    const product = await repository.add(productInput)
-    return res.status(201).send({message: 'Product created', data: product})
+    try{
+        const product = em.create(Product, req.body.sanitizedInput)
+        await em.flush()
+        res.status(201).json({message: 'product created', data:product})
+    } catch (error:any){
+        res.status(500).json({message: error.message})
+    }
 }
 
 async function update(req: Request, res: Response){
-    const product = await repository.update(req.params.id, req.body.sanitizedInput)
-
-    if(!product){
-        return res.status(404).send({ message: 'Product not found' })
-    }
-
-    return res.status(200).send({ message: 'Product updated succesfully', data: product })
+    try {
+        const id = req.params.id
+        const productToUpdate = await em.findOneOrFail(Product, { id })
+        em.assign(productToUpdate, req.body.sanitizedInput)
+        await em.flush()
+        res.status(200).json({ message: 'product updated', data: productToUpdate })
+      } catch (error: any) {
+        res.status(500).json({ message: error.message })
+      }
 }
 
 async function remove(req: Request, res: Response){
-    const id = req.params.id
-    const product = await repository.delete({id})
-
-    if(!product){  
-        res.status(404).send({ message: 'Product not found'})
-    } else{
-        res.status(200).send({ message: 'Product delete succesfully'})
-    }
+    try {
+        const id = req.params.id
+        const product = em.getReference(Product, id)
+        await em.removeAndFlush(product)
+      } catch (error: any) {
+        res.status(500).json({ message: error.message })
+      }
 }
 
 export {sanitizeProductInput, findAll, findOne, add, update, remove}

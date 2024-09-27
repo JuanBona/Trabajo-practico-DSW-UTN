@@ -1,0 +1,41 @@
+### GET ALL
+GET http://localhost:3000/api/categories/brands
+
+### POST
+# @name createCategoryBrand
+POST http://localhost:3000/api/categories/brands
+Content-Type: application/json
+
+{
+    "nombre": "Capsula",
+    "descripcion": "Una capsula de cafe"
+}
+
+### ID
+@id = {{createCategoryBrand.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/api/categories/brands/{{id}}
+
+### PUT
+POST http://localhost:3000/api/categories/brands/{{id}}
+Content-Type: application/json
+
+{
+    "nombre": "Capsula", 
+    "descripcion": "capsula de cafe"
+}
+
+### POST CATEGORY TO DELETE
+# @name createCategoryBrandToDelete
+POST http://localhost:3000/api/categories/brands
+Content-Type: application/json
+
+{
+    "nombre":"prueba",
+    "descripcion":"descripcion de prueba",
+}
+
+### DELETE
+@idToDelete = {{createCategoryBrandToDelete.response.body.data.id}}
+DELETE http://localhost:3000/api/categories/brands{{{{idToDelete}}}}
