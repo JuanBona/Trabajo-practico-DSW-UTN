@@ -1,14 +1,33 @@
-import { ObjectId } from 'mongodb';
-import crypto from 'node:crypto'
+import {
+    Entity,
+    Property,
+    ManyToMany,
+    Cascade,
+    ManyToOne,
+    Rel,
+} from '@mikro-orm/core'
+import { BaseEntity } from '../shared/baseEntity.entity.js'
+import { ProductClass } from './productClass.entity.js'
 
-export class Product{
-    constructor(
-        public nombre: string,
-        public descripcion: string,
-        public precio: number,
-        public stock: number,
-        public marca: string,
-        public categoria: string,
-        public _id ?: ObjectId
-    ) {}
+@Entity()
+export class Product extends BaseEntity {
+    @Property({ nullable: false })
+    name!: string
+
+    @ManyToOne(() => ProductClass, { nullable: false})
+    productClass!: Rel<ProductClass>
+
+    @Property({ nullable: false })
+    description!: string
+
+    @Property({ nullable: false })
+    precio!: number
+
+    @Property({ nullable: false })
+    stock!: number
+
+    @Property({ nullable: false })
+    brand!: string
+
+    //CASCADE @MANYTOMANY NOT NEEDED
 }

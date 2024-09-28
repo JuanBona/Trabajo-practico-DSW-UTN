@@ -1,0 +1,36 @@
+### GET ALL
+GET http://localhost:3000/api/products/classes
+
+### POST
+# @name createProductClass
+POST http://localhost:3000/api/products/classes
+Content-Type: application/json
+
+{
+  "name": "Whole Grain",
+  "description": "Taste the flavor of the coffee"
+}
+
+### ID
+
+@id {{createProductClass.response.body.data.id}}
+
+### GET ONE
+
+GET http://localhost:3000/api/products/classes/{{id}}
+
+### PUT
+
+PUT http://localhost:3000/api/products/classes/{{id}}
+Content-Type: application/json
+
+{
+    "name": "Granos enteros",
+    "description": "Prueba el sabor del cafe"
+}
+
+### DELETE
+
+@idToDelete = {{createProductClassToDelete.response.body.data.id}}
+
+DELETE http://localhost:3000/api/products/classes/{{{{idToDelete}}}}
