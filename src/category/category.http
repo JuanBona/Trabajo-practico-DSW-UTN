@@ -1,36 +1,57 @@
 ### obtener todos las categories
 GET http://localhost:3000/api/categories
 
+### ID
+@id = {{createAccesorio.response.body.data.id}}
+
 ### obtener una category
-GET http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+GET http://localhost:3000/api/categories/{{id}}
 
 ### crear una nueva category
+# @name createAccesorio
 POST http://localhost:3000/api/categories
 Content-Type: application/json
 
 {
     "nombre": "Accesorios para cafe",
-    "descripcion": "Los mejores accesorios para tu cafe!"
+    "descripcion": "Los mejores accesorios para tu cafe!",
+    "categoryType": 1
     }
 
 ### modificar una category
-PUT http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+PUT http://localhost:3000/api/categories
 Content-Type: application/json
 
 {
     "nombre": "Categoria modificada",
-    "descripcion": "Esta categoria fue modificada..."
+    "descripcion": "Esta categoria fue modificada...",
+    "categoryType": 2
 }
 
+### POST a category
+# @name createCategoryToDelete
+POST http://localhost:3000/api/categories
+Content-Type: application/json
+
+{
+    "nombre": "Grano",
+    "descripcion": "tipo grano",
+    "categoryType": 3
+    
+}
+
+### DELETE a category
+@idToDelete = {{createCategoryToDelete.response.body.data.id}}
+DELETE http://localhost:3000/api/categories/{{idToDelete}}
+
 ### modificar una category(parcialmente)
-PATCH http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+PATCH http://localhost:3000/api/categories/{{idToDelete}}
 Content-Type: application/json
 
 {
     "nombre": "Cafe e infusiones",
-    "descripcion": "Una gran variedad"
+    "descripcion": "Una gran variedad",
+    "categoryType": 4
+
 }
 
-### delete una category
-
-DELETE http://localhost:3000/api/categories/a02b91bc-3769-4221-beb1-d7a3aeba7dad
