@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import { clientRouter } from './client/client.routes.js';
 import { productRouter } from './product/product.routes.js';
-import { ClientClassRouter } from './client/clientClass.routes.js';
+import { clientClassRouter } from './client/clientClass.routes.js';
 import { productBrandRouter } from './product/productBrand.routes.js';
 import { productClassRouter } from './product/productClass.routes.js';
 import {orm, syncSchema} from './shared/db/orm.js';
@@ -18,7 +18,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 // antes de las rutas y middleware de negocio
 app.use('/api/clients', clientRouter);
-app.use('/api/client/classes', ClientClassRouter);
+app.use('/api/client/classes', clientClassRouter);
 app.use('/api/products', productRouter);
 app.use('/api/product/brands', productBrandRouter);
 app.use('/api/product/classes', productClassRouter);

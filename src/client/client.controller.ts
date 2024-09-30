@@ -1,10 +1,11 @@
-import { Request, Response, NextFunction } from "express";
-import { client } from './client.entity.js'
-import { orm } from '../shared/db/orm.js'
+import { Request, Response, NextFunction } from 'express';
+import { Client } from './client.entity.js';
+import { orm } from '../shared/db/orm.js';
+import { ObjectId } from '@mikro-orm/mongodb';
 
-const em = orm.em
+const em = orm.em;
 
-function sanitizeClientesInput(req: Request, res: Response, next: NextFunction){
+function sanitizeClientInput(req: Request, res: Response, next: NextFunction) {
   req.body.sanitizedInput = {
     name: req.body.name,
     lastname: req.body.lastname,
@@ -15,76 +16,70 @@ function sanitizeClientesInput(req: Request, res: Response, next: NextFunction){
     city: req.body.city,
     country: req.body.country,
     postalCode: req.body.postalCode,
-    dni: req.body.dni
-  }
+    dni: req.body.dni,
+    clientClass: req.body.clientClass,
+  };
+
   Object.keys(req.body.sanitizedInput).forEach((key) => {
-    if (req.body.sanitizedInput[key]=== undefined) {
+    if (req.body.sanitizedInput[key] === undefined) {
       delete req.body.sanitizedInput[key];
     }
-  })
+  });
   next();
 }
-//test
+
 async function findAll(req: Request, res: Response) {
   try {
-    const Clients = await em.find(
-      client,
-      {},
-      { populate: ['clientClass'] }
-    )
-    res.status(200).json({ message: 'found all Clients', data: Clients })
+    const clients = await em.find(Client, {}, { populate: ['clientClass'] });
+    res.status(200).json({ message: 'found all clients', data: clients });
   } catch (error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
 
 async function findOne(req: Request, res: Response) {
   try {
-    const id = req.params.id
-    const Client = await em.findOneOrFail(
-      client,
-      { id },
-      { populate: ['clientClass'] }
-    )
-    res.status(200).json({ message: 'found client', data: Client })
+    const id = req.params.id;
+    const objectId = new ObjectId(id);
+    const client = await em.findOneOrFail(Client, { _id: objectId }, { populate: ['clientClass'] });
+    res.status(200).json({ message: 'found client', data: client });
   } catch (error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
 
 async function add(req: Request, res: Response) {
   try {
-    const Client = em.create(client, req.body.sanitizedInput)
-    await em.flush()
-    res.status(201).json({ message: 'client created', data: Client })
+    const client = em.create(Client, req.body.sanitizedInput);
+    await em.flush();
+    res.status(201).json({ message: 'client created', data: client });
   } catch (error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
 
 async function update(req: Request, res: Response) {
   try {
-    const id = req.params.id
-    const clientToUpdate = await em.findOneOrFail(client, { id })
-    em.assign(clientToUpdate, req.body.sanitizedInput)
-    await em.flush()
-    res
-      .status(200)
-      .json({ message: 'client updated', data: clientToUpdate })
+    const id = req.params.id;
+    const objectId = new ObjectId(id);
+    const clientToUpdate = await em.findOneOrFail(Client, { _id: objectId });
+    em.assign(clientToUpdate, req.body.sanitizedInput);
+    await em.flush();
+    res.status(200).json({ message: 'client updated', data: clientToUpdate });
   } catch (error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
 
 async function remove(req: Request, res: Response) {
   try {
-    const id = req.params.id
-    const Client = em.getReference(client, id)
-    await em.removeAndFlush(Client)
+    const id = req.params.id;
+    const client = em.getReference(Client, id);
+    await em.removeAndFlush(client);
+    res.status(200).json({ message: 'client removed' });
   } catch (error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
 
-export { sanitizeClientesInput, findAll, findOne, add, update, remove }
-// Path: src/client/client.repository.ts
+export { sanitizeClientInput, findAll, findOne, add, update, remove };

@@ -1,2 +1,54 @@
 ### GET ALL
-GET http://localhost:3000/api/clients/classes
+GET http://localhost:3000/api/client/classes
+
+### POST
+# @name createClientClass
+POST http://localhost:3000/api/client/classes
+Content-Type: application/json
+
+{
+  "name": "Clase 1"
+}
+
+### ID
+@id = {{createClientClass.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/api/client/classes/{{id}}
+
+### PUT
+PUT  http://localhost:3000/api/client/classes/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Clase 1 Actualizada",
+}
+
+### POST2
+POST http://localhost:3000/api/client/classes
+Content-Type: application/json
+
+{
+  "name": "Clase 2",
+}
+
+### POST3
+POST http://localhost:3000/api/client/classes
+Content-Type: application/json
+
+{
+  "name": "Clase 3"
+}
+
+### POST CLIENT CLASS TO DELETE
+# @name createClientClassToDelete
+POST http://localhost:3000/api/client/classes
+Content-Type: application/json
+
+{
+  "name": "Clase 4",
+}
+
+### DELETE
+@idToDelete = {{createClientClassToDelete.response.body.data.id}}
+DELETE http://localhost:3000/api/client/classes/{{idToDelete}}

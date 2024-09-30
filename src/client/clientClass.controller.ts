@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import { orm } from '../shared/db/orm.js'
 import { ClientClass } from './clientClass.entity.js'
-import { t } from '@mikro-orm/core'
 
 const em = orm.em
 
@@ -30,13 +29,17 @@ async function findOne(req: Request, res: Response) {
 
 async function add(req: Request, res: Response) {
   try {
-    const clientClass = em.create(ClientClass, req.body)
-    await em.flush()
-    res
-      .status(201)
-      .json({ message: 'Client class created', data: clientClass })
+    // Validar que req.body no sea undefined
+    if (!req.body) {
+      return res.status(400).json({ message: 'Request body is required' });
+    }
+
+    // Crear la instancia de ClientClass sin depender de __entity
+    const clientClass = em.create(ClientClass, req.body);
+    await em.flush();
+    res.status(201).json({ message: 'Client class created', data: clientClass });
   } catch (error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
 

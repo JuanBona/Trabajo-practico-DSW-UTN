@@ -1,52 +1,87 @@
-## Todos los clientes
-GET http://localhost:3000/api/clients
+### GET all clients
+http://localhost:3000/api/clients
 
-### un cliente en particular
-GET http://localhost:3000/api/clients/665ce676ea03f832f6bea45a
-
-### crear un nuevo cliente
+### POST a client
+# @name createClient
 POST http://localhost:3000/api/clients
 Content-Type: application/json
 
 {
-        "name": "Juan",
-        "lastname": "Bonanno",
-        "birthdate": "1993-01-01",
-        "email": "juan.bonanno@example.com",
-        "phone": "1234567890",
-        "address": "Calle 123",
-        "city": "Buenos Aires",
-        "country": "ARG",
-        "postalCode": "1234",
-        "dni": "12345678"
+    "name": "Juan",
+    "lastname": "Bonanno",
+    "birthdate": "1993-01-01",
+    "email": "juan.bonanno@example.com",
+    "phone": "1234567890",
+    "address": "Calle 123",
+    "city": "Buenos Aires",
+    "country": "ARG",
+    "postalCode": "1234",
+    "dni": "12345678",
+    "clientClass": "66f9e07932a1f21b48b88858"
 }
 
+### ID
+@id = {{createClient.response.body.data.id}}
 
-### modificar un cliente (PUT - recurso completo e idempotente)
-PUT http://localhost:3000/api/clients/66b0e8c8e17bb011977c78c0
+### GET one client
+http://localhost:3000/api/clients/{{id}}
+
+### PUT a client
+PUT http://localhost:3000/api/clients/{{id}}
 Content-Type: application/json
 
 {
     "name": "Juan Bonanno",
     "lastname": "Bonanno",
     "birthdate": "1993-01-01",
-    "email": " s,dsa,",
+    "email": "juan.bonanno@example.com",
     "phone": "1234567890",
     "address": "Calle 123",
     "city": "Buenos Aires",
+    "country": "ARG",
     "postalCode": "1234",
     "dni": "12345678",
-    "password": "123"
+    "clientClass": "66f9e07932a1f21b48b88858"
 }
 
-### modificar un cliente (PATCH - recurso parcial)
-PATCH http://localhost:3000/api/clients/1-1-1-1-1
+### POST a client
+POST http://localhost:3000/api/clients
 Content-Type: application/json
 
 {
-    "name": "Juan Bonanno",
-    "age": 27
+    "name": "Maria",
+    "lastname": "Perez",
+    "birthdate": "1990-05-15",
+    "email": "maria.perez@example.com",
+    "phone": "0987654321",
+    "address": "Avenida Siempre Viva 742",
+    "city": "Cordoba",
+    "country": "ARG",
+    "postalCode": "5678",
+    "dni": "87654321",
+    "clientClass": "66f9e07932a1f21b48b88858"
 }
 
-### borrar un cliente
-DELETE http://localhost:3000/api/clients/66b0e870e17bb011977c78bf
+### POST a client
+# @name createClientToDelete
+POST http://localhost:3000/api/clients
+Content-Type: application/json
+
+{
+    "name": "Carlos",
+    "lastname": "Gomez",
+    "birthdate": "1985-03-10",
+    "email": "carlos.gomez@example.com",
+    "phone": "1122334455",
+    "address": "Calle Falsa 123",
+    "city": "Rosario",
+    "country": "ARG",
+    "postalCode": "9101",
+    "dni": "11223344",
+    "clientClass": "66f9e07932a1f21b48b88858"
+}
+
+### DELETE a client
+@idToDelete = {{createClientToDelete.response.body.data.id}}
+DELETE http://localhost:3000/api/clients/{{idToDelete}}
+

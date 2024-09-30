@@ -5,12 +5,11 @@ import {
   add,
   update,
   remove,
-} from './client.controller.js'
+} from '../client/clientClass.controller.js'
+export const clientClassRouter = Router()
 
-export const ClientClassRouter = Router()
-
-ClientClassRouter.get('/', findAll)
-ClientClassRouter.get('/:id', findOne)
-ClientClassRouter.post('/', add)
-ClientClassRouter.put('/:id', update)
-ClientClassRouter.delete('/:id', remove)
+clientClassRouter.get('/', findAll)
+clientClassRouter.get('/:id', findOne)
+clientClassRouter.post('/', add)
+clientClassRouter.put('/:id', update)
+clientClassRouter.delete('/:id', remove)
