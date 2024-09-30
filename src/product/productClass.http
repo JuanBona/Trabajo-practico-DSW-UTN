@@ -29,6 +29,16 @@ Content-Type: application/json
     "description": "Prueba el sabor del cafe"
 }
 
+### POST ProductClass TO DELETE
+# @name createProductClassToDelete
+POST http://localhost:3000/api/products/classes
+Content-Type: application/json
+
+{
+    "nombre":"prueba",
+    "descripcion":"descripcion de prueba",
+}
+
 ### DELETE
 
 @idToDelete = {{createProductClassToDelete.response.body.data.id}}
