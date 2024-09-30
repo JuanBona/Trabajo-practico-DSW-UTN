@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { orm } from '../shared/orm.js'
+import { orm } from '../shared/db/orm.js'
 import { ProductClass } from "./productClass.entity.js"
 
 const em = orm.em
