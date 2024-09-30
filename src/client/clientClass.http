@@ -21,7 +21,7 @@ PUT  http://localhost:3000/api/client/classes/{{id}}
 Content-Type: application/json
 
 {
-  "name": "Clase 1 Actualizada",
+  "name": "Clase 1 Actualizada"
 }
 
 ### POST2
@@ -29,7 +29,7 @@ POST http://localhost:3000/api/client/classes
 Content-Type: application/json
 
 {
-  "name": "Clase 2",
+  "name": "Clase 2"
 }
 
 ### POST3
@@ -46,7 +46,7 @@ POST http://localhost:3000/api/client/classes
 Content-Type: application/json
 
 {
-  "name": "Clase 4",
+  "name": "Clase 4"
 }
 
 ### DELETE

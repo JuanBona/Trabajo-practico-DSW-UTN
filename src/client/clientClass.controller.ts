@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { orm } from '../shared/db/orm.js'
 import { ClientClass } from './clientClass.entity.js'
+import { ObjectId } from '@mikro-orm/mongodb';
 
 const em = orm.em
 
@@ -18,7 +19,8 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   try {
     const id = req.params.id
-    const clientClass = await em.findOneOrFail(ClientClass, { id })
+    const objectId = new ObjectId(id); 
+    const clientClass = await em.findOneOrFail(ClientClass, { _id: objectId })
     res
       .status(200)
       .json({ message: 'found client class', data: clientClass })
@@ -46,7 +48,8 @@ async function add(req: Request, res: Response) {
 async function update(req: Request, res: Response) {
   try {
     const id = req.params.id
-    const clientClass = em.getReference(ClientClass, id)
+    const objectId = new ObjectId(id); 
+    const clientClass = em.getReference(ClientClass, objectId)
     em.assign(clientClass, req.body)
     await em.flush()
     res.status(200).json({ message: 'client class updated' })
@@ -58,7 +61,8 @@ async function update(req: Request, res: Response) {
 async function remove(req: Request, res: Response) {
   try {
     const id = req.params.id
-    const clientClass = em.getReference(ClientClass, id)
+    const objectId = new ObjectId(id); 
+    const clientClass = em.getReference(ClientClass, objectId)
     await em.removeAndFlush(clientClass)
     res.status(200).send({ message: 'Client class deleted' })
   } catch (error: any) {
