@@ -1,9 +1,9 @@
 ### GET ALL
-GET http://localhost:3000/api/products/classes
+GET http://localhost:3000/api/product/classes
 
 ### POST
 # @name createProductClass
-POST http://localhost:3000/api/products/classes
+POST http://localhost:3000/api/product/classes
 Content-Type: application/json
 
 {
@@ -17,11 +17,11 @@ Content-Type: application/json
 
 ### GET ONE
 
-GET http://localhost:3000/api/products/classes/{{id}}
+GET http://localhost:3000/api/product/classes/{{id}}
 
 ### PUT
 
-PUT http://localhost:3000/api/products/classes/{{id}}
+PUT http://localhost:3000/api/product/classes/{{id}}
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 
 @idToDelete = {{createProductClassToDelete.response.body.data.id}}
 
-DELETE http://localhost:3000/api/products/classes/{{{{idToDelete}}}}
+DELETE http://localhost:3000/api/product/classes/{{{{idToDelete}}}}

@@ -1,12 +1,6 @@
 ### obtener todos los products
 GET http://localhost:3000/api/products
 
-### ID
-@id = {{createMarca.response.body.data.id}}
-
-### obtener una category
-GET http://localhost:3000/api/products/{{id}}
-
 ### crear un nuevo product
 # @name createMarca
 POST http://localhost:3000/api/products
@@ -17,9 +11,17 @@ Content-Type: application/json
     "descripcion": "cafe dorado",
     "precio": "500",
     "stock": "1",
-    "marca": "Leyenda",
-    "categoria": "Unico"
+    "productBrand": "66f9e07932a1f21b48b88858",
+    "productClass": "Unico"
     }
+
+
+### ID
+@id = {{createMarca.response.body.data.id}}
+
+### obtener una category
+GET http://localhost:3000/api/products/{{id}}
+
 
 ### modificar un product
 PUT http://localhost:3000/api/products
@@ -30,8 +32,8 @@ Content-Type: application/json
     "descripcion": "cafe plateado",
     "precio": "999",
     "stock": "33",
-    "marca": "Epico",
-    "categoria": "Unico"
+    "productBrand": "66f9e07932a1f21b48b88858",
+    "productClass": "Unico"
 }
 
 ### POST a product
@@ -44,8 +46,8 @@ Content-Type: application/json
     "descripcion": "cafe marron",
     "precio": "568",
     "stock": "17",
-    "marca": "Epico",
-    "categoria": "Unico"
+    "productBrand": "Epico",
+    "productClass": "Unico"
 }
 
 ### modificar un product(parcialmente)
@@ -55,10 +57,10 @@ Content-Type: application/json
 {
     "nombre": "cafe viejo",
     "descripcion": "cafe dorado antiguo",
-    "categoryType": "Leyenda"
+    "productBrand": "Leyenda"
 
 }
 
 ### DELETE a product
 @idToDelete = {{createProductToDelete.response.body.data.id}}
-DELETE http://localhost:3000/api/product/{{idToDelete}}
+DELETE http://localhost:3000/api/products/{{idToDelete}}

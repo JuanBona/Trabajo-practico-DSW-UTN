@@ -3,11 +3,11 @@ import {
   Entity,
   OneToMany,
   PrimaryKey,
-  Property
+  Property,
+  Collection
 } from "@mikro-orm/core"
 import { Product } from "./product.entity.js"
-import { Collection } from "mongodb"
-import { BaseEntity } from "../shared/baseEntity.entity.js"
+import { BaseEntity } from "../shared/db/baseEntity.entity.js";
 
 @Entity()
 export class ProductClass extends BaseEntity{
@@ -18,8 +18,9 @@ export class ProductClass extends BaseEntity{
   @Property()
   description!: string
 
-  @OneToMany(() => Product, product => product.productClass, {
+  @OneToMany(() => Product, (product) => product.productClass, {
     cascade: [Cascade.ALL]   //ORPHAN FAILS AT RELATIONALDBs
   })
   products = new Collection<Product>(this) //SI AGREGO EL THIS NO FUNCIONA
 }
+

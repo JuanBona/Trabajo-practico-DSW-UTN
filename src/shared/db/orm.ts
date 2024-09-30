@@ -1,12 +1,13 @@
 import { MikroORM } from "@mikro-orm/core";
 import { MongoHighlighter } from "@mikro-orm/mongo-highlighter";
-
+import { MongoDriver } from "@mikro-orm/mongodb";
+import { defineConfig } from '@mikro-orm/mongodb';
 
 export const orm = await MikroORM.init({
   entities: ['dist/**/*.entity.js'],
   entitiesTs: ['src/**/*.entity.ts'],
-  dbName: 'hc4gmo',
-  type: 'mongo',
+  dbName: 'donjulio',
+  driver: MongoDriver,
   clientUrl: 'mongodb://localhost:27017',
   highlighter: new MongoHighlighter(),
   debug: true,

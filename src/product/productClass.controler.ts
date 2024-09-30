@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
-import { orm } from '../shared/orm.js'
+import { orm } from "../shared/db/orm.js"
 import { ProductClass } from "./productClass.entity.js"
+import { ObjectId } from '@mikro-orm/mongodb';
 
 const em = orm.em
 
@@ -16,7 +17,8 @@ async function findAll(req:Request, res:Response){
 async function findOne(req:Request, res:Response){
     try {
         const id = req.params.id
-        const productClass = await em.findOneOrFail(ProductClass, { id })
+        const objectId = new ObjectId(id);
+        const productClass = await em.findOneOrFail(ProductClass, { _id: objectId })
         res.status(200).json({ message: 'found product class', data: productClass })
     } catch (error: any) {
       res.status(500).json({ message: error.message })

@@ -1,41 +1,41 @@
 ### GET ALL
-GET http://localhost:3000/api/categories/brands
+GET http://localhost:3000/api/product/brands
 
 ### POST
-# @name createCategoryBrand
-POST http://localhost:3000/api/categories/brands
+# @name createProductBrand
+POST http://localhost:3000/api/product/brands
 Content-Type: application/json
 
 {
-    "nombre": "Capsula",
+    "nombre": "Capsulita",
     "descripcion": "Una capsula de cafe"
 }
 
 ### ID
-@id = {{createCategoryBrand.response.body.data.id}}
+@id = {{createProductBrand.response.body.data.id}}
 
 ### GET ONE
-GET http://localhost:3000/api/categories/brands/{{id}}
+GET http://localhost:3000/api/product/brands/{{id}}
 
 ### PUT
-POST http://localhost:3000/api/categories/brands/{{id}}
+PUT http://localhost:3000/api/product/brands/{{id}}
 Content-Type: application/json
 
 {
-    "nombre": "Capsula", 
-    "descripcion": "capsula de cafe"
+    "nombre": "Capsulon", 
+    "descripcion": "capsula de cafeeeee"
 }
 
 ### POST CATEGORY TO DELETE
-# @name createCategoryBrandToDelete
-POST http://localhost:3000/api/categories/brands
+# @name createProductBrandToDelete
+POST http://localhost:3000/api/product/brands
 Content-Type: application/json
 
 {
     "nombre":"prueba",
-    "descripcion":"descripcion de prueba",
+    "descripcion":"descripcion de prueba borraduki"
 }
 
 ### DELETE
-@idToDelete = {{createCategoryBrandToDelete.response.body.data.id}}
-DELETE http://localhost:3000/api/categories/brands{{{{idToDelete}}}}
+@idToDelete = {{createProductBrandToDelete.response.body.data.id}}
+DELETE http://localhost:3000/api/product/brands/{{idToDelete}}

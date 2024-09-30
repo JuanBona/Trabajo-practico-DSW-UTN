@@ -12,6 +12,6 @@ export class ProductBrand extends BaseEntity{
     @Property()
     descripcion!: string
 
-    @OneToMany(() => Product, product => product.productBrand, {cascade: [Cascade.ALL]})
+    @OneToMany(() => Product, (product) => product.productBrand, {cascade: [Cascade.ALL]})
     products = new Collection<Product>(this)
 }
