@@ -7,34 +7,35 @@ POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
-    "nombre": "cafe nuevo",
+    "nombre": "cafe",
     "descripcion": "cafe dorado",
     "precio": "500",
     "stock": "1",
-    "productBrand": "66f9e07932a1f21b48b88858",
-    "productClass": "Unico"
+    "productBrand": "66fb074181af8e4453b3acd1",
+    "productClass": "66fae7dc1c0b7c05cbef0a65"
     }
 
 
 ### ID
 @id = {{createMarca.response.body.data.id}}
 
-### obtener una category
+### obtener un producto
 GET http://localhost:3000/api/products/{{id}}
 
 
-### modificar un product
-PUT http://localhost:3000/api/products
+### modificar un producto
+PUT http://localhost:3000/api/products/{{id}}
 Content-Type: application/json
 
 {
-    "nombre": "cafe put",
-    "descripcion": "cafe plateado",
-    "precio": "999",
-    "stock": "33",
-    "productBrand": "66f9e07932a1f21b48b88858",
-    "productClass": "Unico"
-}
+    "nombre": "cafe nuevo",
+    "descripcion": "cafe dorado",
+    "precio": "520",
+    "stock": "1",
+    "productBrand": "66fb0c5c5d936014378bc66f",
+    "productClass": "66feb67230181c7b5123acf7"
+    }
+
 
 ### POST a product
 # @name createProductToDelete
@@ -42,12 +43,12 @@ POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
-    "nombre": "cafe nuevo 2",
-    "descripcion": "cafe marron",
-    "precio": "568",
+    "nombre": "cafe viejo",
+    "descripcion": "cafe marronazo",
+    "precio": "777",
     "stock": "17",
-    "productBrand": "Epico",
-    "productClass": "Unico"
+    "productBrand": "66fdbbac58cee0737b5d0582",
+    "productClass": "66feb7dab4d80d202502fdc9"
 }
 
 ### modificar un product(parcialmente)
@@ -57,7 +58,7 @@ Content-Type: application/json
 {
     "nombre": "cafe viejo",
     "descripcion": "cafe dorado antiguo",
-    "productBrand": "Leyenda"
+    "productBrand": "66feb47443bc4542470f0252"
 
 }
 

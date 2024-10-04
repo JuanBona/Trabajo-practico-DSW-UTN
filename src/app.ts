@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import { clientRouter } from './client/client.routes.js';
 import { productRouter } from './product/product.routes.js';
 import { clientClassRouter } from './client/clientClass.routes.js';
@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 //luego de los middleware base como express.json()
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req, res, next) => {
     RequestContext.create(orm.em,next)
 });
 // antes de las rutas y middleware de negocio
@@ -23,11 +23,11 @@ app.use('/api/products', productRouter);
 app.use('/api/product/brands', productBrandRouter);
 app.use('/api/product/classes', productClassRouter);
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('HelloWorld!');
-});
+app.use((_, res) => {
+    return res.status(404).send({ message: 'Resource not found' })
+  })
 
-await syncSchema() //never in production. This is for development only
+//await syncSchema() //never in production. This is for development only
 
 app.listen(3000, () => {
     console.log('Server is running');

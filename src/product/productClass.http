@@ -12,11 +12,9 @@ Content-Type: application/json
 }
 
 ### ID
-
-@id {{createProductClass.response.body.data.id}}
+@id = {{createProductClass.response.body.data.id}}
 
 ### GET ONE
-
 GET http://localhost:3000/api/product/classes/{{id}}
 
 ### PUT
@@ -29,18 +27,18 @@ Content-Type: application/json
     "description": "Prueba el sabor del cafe"
 }
 
-### POST ProductClass TO DELETE
+### POST CLASS TO DELETE
 # @name createProductClassToDelete
-POST http://localhost:3000/api/products/classes
+POST http://localhost:3000/api/product/classes
 Content-Type: application/json
 
 {
-    "nombre":"prueba",
-    "descripcion":"descripcion de prueba",
+    "name":"prueba",
+    "description":"descripcion de prueba borraduki"
 }
 
 ### DELETE
 
 @idToDelete = {{createProductClassToDelete.response.body.data.id}}
 
-DELETE http://localhost:3000/api/product/classes/{{{{idToDelete}}}}
+DELETE http://localhost:3000/api/product/classes/{{idToDelete}}

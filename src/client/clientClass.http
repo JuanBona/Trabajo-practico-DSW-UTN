@@ -21,7 +21,7 @@ PUT  http://localhost:3000/api/client/classes/{{id}}
 Content-Type: application/json
 
 {
-  "name": "Clase 1 Actualizada"
+  "name": "Clase 4 Actualizada"
 }
 
 ### POST2

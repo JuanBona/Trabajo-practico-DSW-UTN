@@ -1,13 +1,12 @@
 import { MikroORM } from "@mikro-orm/core";
 import { MongoHighlighter } from "@mikro-orm/mongo-highlighter";
-import { MongoDriver } from "@mikro-orm/mongodb";
-import { defineConfig } from '@mikro-orm/mongodb';
+
 
 export const orm = await MikroORM.init({
   entities: ['dist/**/*.entity.js'],
   entitiesTs: ['src/**/*.entity.ts'],
   dbName: 'donjulio',
-  driver: MongoDriver,
+  type: 'mongo',
   clientUrl: 'mongodb://localhost:27017',
   highlighter: new MongoHighlighter(),
   debug: true,
@@ -17,7 +16,7 @@ export const orm = await MikroORM.init({
     createForeignKeyConstraints: true,
     ignoreSchema: [],
   },
-} as Parameters<typeof MikroORM.init>[0]);
+});
 
 export const syncSchema = async () => {
     const generator = orm.getSchemaGenerator()

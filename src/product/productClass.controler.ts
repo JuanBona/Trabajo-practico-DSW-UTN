@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
 import { orm } from "../shared/db/orm.js"
 import { ProductClass } from "./productClass.entity.js"
-import { ObjectId } from '@mikro-orm/mongodb';
 
 const em = orm.em
 
@@ -17,8 +16,7 @@ async function findAll(req:Request, res:Response){
 async function findOne(req:Request, res:Response){
     try {
         const id = req.params.id
-        const objectId = new ObjectId(id);
-        const productClass = await em.findOneOrFail(ProductClass, { _id: objectId })
+        const productClass = await em.findOneOrFail(ProductClass, { id })
         res.status(200).json({ message: 'found product class', data: productClass })
     } catch (error: any) {
       res.status(500).json({ message: error.message })
@@ -38,7 +36,7 @@ async function add(req: Request, res: Response){
 async function update(req: Request, res: Response){
     try {
         const id = req.params.id
-        const productClass = await em.getReference(ProductClass, id )
+        const productClass = em.getReference(ProductClass, id )
         em.assign(productClass, req.body)
         await em.flush()
         res.status(200).json({ message: 'product class updated'})
@@ -52,7 +50,7 @@ async function remove(req: Request, res: Response){
         const id = req.params.id
         const productClass = em.getReference(ProductClass, id)
         await em.removeAndFlush(productClass)
-        res.status(204).send({ message: "product class deleted"})
+        res.status(200).send({ message: "product class deleted"})
     } catch (error: any) {
     res.status(500).json({ message: error.message })
     }

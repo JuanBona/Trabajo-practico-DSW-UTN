@@ -1,4 +1,4 @@
-import e, { Request, Response, NextFunction } from "express"
+import { Request, Response, NextFunction } from "express"
 import { Product } from "./product.entity.js"
 import { orm } from "../shared/db/orm.js"
 
@@ -11,7 +11,7 @@ function sanitizeProductInput(req: Request, res: Response, next: NextFunction){
         precio: req.body.precio,
         stock: req.body.stock,
         productBrand: req.body.productBrand,
-        productClass: req.body.productClass,
+        productClass: req.body.productClass
     }
 
     Object.keys(req.body.sanitizedInput).forEach((key) => {
@@ -27,7 +27,7 @@ async function findAll(req:Request, res:Response){
         const products = await em.find(
             Product,
             {},
-            {populate:['productClass']} //FALTA "ITEMS"?
+            {populate:['productClass', 'productBrand']} //FALTA "ITEMS"?
         )
         res.status(200).json({message: 'found all products', data:products})
     } catch (error:any) {
@@ -41,7 +41,7 @@ async function findOne(req:Request, res:Response){
         const product = await em.findOneOrFail(
             Product,
             { id },
-            {populate:['productClass']} //FALTA "ITEMS"?
+            {populate:['productClass', 'productBrand']} //FALTA "ITEMS"?
         )
         res.status(201).json({ message: 'found product', data: product})
     } catch (error:any) {

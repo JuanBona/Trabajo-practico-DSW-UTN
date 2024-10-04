@@ -1,5 +1,5 @@
-### GET all clients
-http://localhost:3000/api/clients
+### obtener todos los client
+GET http://localhost:3000/api/clients
 
 ### POST a client
 # @name createClient
@@ -17,7 +17,7 @@ Content-Type: application/json
     "country": "ARG",
     "postalCode": "1234",
     "dni": "12345678",
-    "clientClass": "66f9e07932a1f21b48b88858"
+    "clientClass": "670061abf5a27e66694eace1"
 }
 
 ### ID
@@ -41,7 +41,7 @@ Content-Type: application/json
     "country": "ARG",
     "postalCode": "1234",
     "dni": "12345678",
-    "clientClass": "66f9e07932a1f21b48b88858"
+    "clientClass": "670061abf5a27e66694eace1"
 }
 
 ### POST a client
@@ -59,7 +59,7 @@ Content-Type: application/json
     "country": "ARG",
     "postalCode": "5678",
     "dni": "87654321",
-    "clientClass": "66f9e07932a1f21b48b88858"
+    "clientClass": "670061adf5a27e66694eace2"
 }
 
 ### POST a client
@@ -78,7 +78,7 @@ Content-Type: application/json
     "country": "ARG",
     "postalCode": "9101",
     "dni": "11223344",
-    "clientClass": "66f9e07932a1f21b48b88858"
+    "clientClass": "670061bbf5a27e66694eace3"
 }
 
 ### DELETE a client

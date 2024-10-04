@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { Client } from './client.entity.js';
 import { orm } from '../shared/db/orm.js';
-import { ObjectId } from '@mikro-orm/mongodb';
 
 const em = orm.em;
 
@@ -30,18 +29,21 @@ function sanitizeClientInput(req: Request, res: Response, next: NextFunction) {
 
 async function findAll(req: Request, res: Response) {
   try {
-    const clients = await em.find(Client, {}, { populate: ['clientClass'] });
-    res.status(200).json({ message: 'found all clients', data: clients });
+    const clients = await em.find(
+      Client,
+      {},
+      { populate: ['clientClass'] }
+    )
+    res.status(200).json({ message: 'found all clients', data: clients })
   } catch (error: any) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message })
   }
 }
 
 async function findOne(req: Request, res: Response) {
   try {
     const id = req.params.id;
-    const objectId = new ObjectId(id);
-    const client = await em.findOneOrFail(Client, { _id: objectId }, { populate: ['clientClass'] });
+    const client = await em.findOneOrFail(Client, { id }, { populate: ['clientClass'] });
     res.status(200).json({ message: 'found client', data: client });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
@@ -61,8 +63,7 @@ async function add(req: Request, res: Response) {
 async function update(req: Request, res: Response) {
   try {
     const id = req.params.id;
-    const objectId = new ObjectId(id);
-    const clientToUpdate = await em.findOneOrFail(Client, { _id: objectId });
+    const clientToUpdate = await em.findOneOrFail(Client, { id });
     em.assign(clientToUpdate, req.body.sanitizedInput);
     await em.flush();
     res.status(200).json({ message: 'client updated', data: clientToUpdate });
